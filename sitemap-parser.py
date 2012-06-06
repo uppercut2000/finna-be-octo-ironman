@@ -100,6 +100,8 @@ for n in range(THREAD_LIMIT):
     t.start()
 while threading.active_count() > 1:
     time.sleep(1) # Wait to finish
- 
+
+print("saving to file: "+map_file)
+
 with open(map_file, 'wb') as fout:
     fout.write(b'\n'.join(output))
