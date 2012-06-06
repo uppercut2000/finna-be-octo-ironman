@@ -2,9 +2,6 @@
 """Sitemap parser - parses titles from sitemap.xml"""
 import sys, urllib.request, re, threading, queue, time
 sitemapurl = 'http://www.zadornov.net/sitemap.xml'
-# sitemapurl = 'http://oper.ru/sitemap.news.xml'
-# sitemapurl = 'http://kp.ru/sitemap.xml'
-# sitemapurl = 'http://korrespondent.net/sitemap.xml'
 
 THREAD_LIMIT = 10
 output = list()
