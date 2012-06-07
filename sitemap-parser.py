@@ -1,7 +1,12 @@
 #!/usr/bin/env python3.2
 """Sitemap parser - parses titles from sitemap.xml"""
 import sys, urllib.request, re, threading, queue, time
-sitemapurl = 'http://www.zadornov.net/sitemap.xml'
+import argparse
+argparser = argparse.ArgumentParser(description='sitemap parser script')
+argparser.add_argument('url',metavar='URL',nargs=1,help='sitemap URL')
+args = argparser.parse_args()
+
+sitemapurl = args.url[0]
 
 THREAD_LIMIT = 10
 output = list()
@@ -64,12 +69,6 @@ def thread():
             return
         parse_page(url)
  
-#check command line
-try:
-    sitemapurl = sys.argv[1].strip()
-except:
-    pass
-
 domainr = re.compile("http://([A-z0-9-.]+)/")
 m = domainr.search(sitemapurl)
 if not m:
